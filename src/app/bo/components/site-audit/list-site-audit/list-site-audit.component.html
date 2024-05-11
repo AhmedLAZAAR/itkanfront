@@ -1,0 +1,94 @@
+<app-loader *ngIf="!siteAudits"></app-loader>
+
+<div class="container" *ngIf="siteAudits">
+    <h2 class="main-title">Les Sites à auditer</h2>
+    <div class="button-container">
+        <!-- Vous pouvez ajouter des boutons ou d'autres éléments interactifs ici -->
+    </div>
+
+    <!-- Affichage du tableau -->
+    <p-fieldset legend="Liste des sites à auditer">
+        <p-table responsiveLayout="scroll" [value]="siteAudits" styleClass="p-datatable-responsive-demo"
+            (onSort)="Sort($event)" (onPage)="paginate($event)" [paginator]="true" [rows]="take"
+            [rowsPerPageOptions]="[10,15,20]" [totalRecords]="totalRecords" [lazy]="true" [(first)]="skip"
+            [showCurrentPageReport]="true" dataKey="id" [sortOrder]="1"
+            currentPageReportTemplate="Affichage {first} à {last} de {totalRecords} résultats" [rowHover]="true">
+            <!-- En-têtes de colonne -->
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="name">
+                        Name <p-sortIcon field="name"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="address">
+                        Address <p-sortIcon field="address"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="city">
+                        City <p-sortIcon field="city"></p-sortIcon>
+                    </th>
+                    <th>Actions</th>
+                </tr>
+            </ng-template>
+            <!-- Corps du tableau -->
+            <ng-template pTemplate="body" let-siteAudit>
+                <tr>
+                    <td>{{ siteAudit.name }}</td>
+                    <td>{{ siteAudit.address }}</td>
+                    <td>{{ siteAudit.city }}</td>
+                    <td>
+                        <!-- Boutons d'action -->
+                        <ng-container>
+                            <i  pButton pRipple
+                                class="p-button-rounded p-button-info mr-2" icon="pi pi-pencil" tooltipPosition="left"
+                                (click)="ShowFormulaire('modifier', siteAudit)">
+                            </i>
+                        </ng-container>
+                        <ng-container>
+                            <i  pButton pRipple
+                                class="p-button-rounded p-button-danger" icon="pi pi-trash" tooltipPosition="right"
+                                 (click)="DeleteAnProcedure(siteAudit.id)">
+                            </i>
+                        </ng-container>
+                    </td>
+                </tr>
+            </ng-template>
+            <!-- Message en cas de tableau vide -->
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="4">
+                        <div class="text-center">
+                            <div class="center_media">
+                                <img src="./assets/layout/images/no_data.svg" width="120px" alt="image no_data">
+                            </div>
+                            <p class="font-weight-bold mt-2">
+                                Aucun enregistrement sur la base de données
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p-fieldset>
+
+    <!-- Formulaire de modification -->
+    <p-dialog [dismissableMask]="true" [closable]="false" [resizable]="false" header="{{Header_info}}"
+    [(visible)]="if_show_modifier" [maximizable]="true" [modal]="true" [baseZIndex]="10000"
+    [style]="{'min-width': '80vw'}">
+    <app-update-procedure [data_selected_ddp]="data_selected_ddp" *ngIf="if_show_modifier"
+        (FermerPopUp)="CloseUpdate($event)">
+    </app-update-procedure>
+    </p-dialog>
+
+    <!-- Formulaire d'ajout -->
+    <p-dialog [dismissableMask]="true" [closable]="false" [resizable]="false" header="Création procédure"
+        [(visible)]="if_show_ajouter" [maximizable]="true" [modal]="true" [baseZIndex]="10000"
+        [style]="{ 'min-width': '70vw' }">
+        <app-add-procedure *ngIf="if_show_ajouter" (FermerPopUp)="CloseAjouter($event)">
+        </app-add-procedure>
+    </p-dialog>
+
+    <!-- Dialog pour afficher les documents -->
+    <p-dialog dismissableMask="true" [resizable]="false" header="Les documents" [(visible)]="if_show_doc" [modal]="true"
+        [baseZIndex]="10000" [style]="{ 'min-width': '30vw' }">
+        <app-impressions [data_selected_ddp]="data_selected_ddp" *ngIf="if_show_doc"></app-impressions>
+    </p-dialog>
+</div>

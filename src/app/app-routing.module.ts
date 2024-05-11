@@ -4,12 +4,6 @@ import { NotfoundComponent } from './bo/components/notfound/notfound.component';
 import { AppLayoutComponent } from './layout/app.layout.component';
 import { AuthGuard } from './services/guard/auth.guard';
 import { AutorisedGuard } from './services/guard/autorised.guard';
-import {ListAuditComponent} from "./bo/components/audit/list-audit/list-audit.component";
-import {AddAuditComponent} from "./bo/components/audit/add-audit/add-audit.component";
-import {AddConstatComponent} from "./bo/components/Constat/add-constat/add-constat.component";
-import {ListConstatComponent} from "./bo/components/Constat/list-constat/list-constat.component";
-import {UpdateAuditComponent} from "./bo/components/audit/update-audit/update-audit.component";
-import {UpdateConstatComponent} from "./bo/components/Constat/update-constat/update-constat.component";
 
 @NgModule({
     imports: [
@@ -31,7 +25,7 @@ import {UpdateConstatComponent} from "./bo/components/Constat/update-constat/upd
                             path: '',
                             canActivate: [AuthGuard, AutorisedGuard],
                             data: { role:'Accueil-Consulter'},
-                            loadChildren: () =>
+                            loadChildren: () =>                     
                             import(
                                     './bo/components/home/home.module'
                                 ).then((m) => m.HomeModule),
@@ -54,7 +48,7 @@ import {UpdateConstatComponent} from "./bo/components/Constat/update-constat/upd
                                     './bo/components/library/library.module'
                                 ).then((m) => m.LibraryModule),
                         },
-
+                       
                         {
                             path: 'utilisateurs',
                             canActivate: [AuthGuard, AutorisedGuard],
@@ -109,32 +103,6 @@ import {UpdateConstatComponent} from "./bo/components/Constat/update-constat/upd
                                     './bo/components/documents-perime/documents-perime.module'
                                 ).then((m) => m.DocumentsPerimeModule),
                         },
-
-                        {
-                            path: 'list',
-                            component: ListAuditComponent,
-                        },
-                        {
-                            path: 'addaudit',
-                            component: AddAuditComponent,
-                        },
-                        {
-                            path: 'editaudit/:id',
-                            component: UpdateAuditComponent,
-                        },
-                        {
-                            path: 'editconstat/:id',
-                            component: UpdateConstatComponent,
-                        },
-                        {
-                            path: 'listconstat',
-                            component: ListConstatComponent,
-                        },
-                        {
-                            path: 'addconstat',
-                            component: AddConstatComponent,
-                        },
-
                         {
                             path: 'Indicateurs',
                             canActivate: [AuthGuard, AutorisedGuard],
@@ -171,6 +139,24 @@ import {UpdateConstatComponent} from "./bo/components/Constat/update-constat/upd
                                     './bo/components/organisme/organisme.module'
                                 ).then((m) => m.OrganismeModule),
                         },
+                        {
+                            path: 'SiteAudit',
+                            canActivate: [AuthGuard, AutorisedGuard],
+                            loadChildren: () =>
+                              import('./bo/components/site-audit/site-audit-routing.module').then(
+                                (m) => m.SiteAuditRoutingModule
+                              ),
+                        },
+                        {
+                            path: 'CheckListAudit',
+                            canActivate: [AuthGuard, AutorisedGuard],
+                           // data: { role: 'Checklist Audit-Consulter' },
+                            loadChildren: () =>
+                                import('./bo/components/check-list-audit/check-list-audit-routing.module').then(
+                                    (m) => m.CheckListAuditRoutingModule                               
+                                ),
+                        },
+                        
                     ],
                 },
                 {
@@ -180,7 +166,6 @@ import {UpdateConstatComponent} from "./bo/components/Constat/update-constat/upd
                             (m) => m.LandingModule
                         ),
                 },
-
                 { path: 'notfound', component: NotfoundComponent },
                 { path: '**', redirectTo: '/notfound' },
             ],
@@ -190,7 +175,6 @@ import {UpdateConstatComponent} from "./bo/components/Constat/update-constat/upd
                 onSameUrlNavigation: 'reload',
             }
         ),
-
     ],
     exports: [RouterModule],
 })

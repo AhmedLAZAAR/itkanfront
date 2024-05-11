@@ -1,0 +1,39 @@
+.data-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa; /* Couleur de fond */
+    border: 1px solid #dee2e6; /* Bordure */
+    border-radius: 5px; /* Bord arrondi */
+  }
+  
+  .data-container .card-title {
+    font-size: 1.25rem; /* Taille de la police */
+    font-weight: bold; /* Gras */
+  }
+  
+  .data-container .card-body {
+    flex: 1; /* Occupé tout l'espace restant */
+    padding-left: 20px; /* Marge à gauche */
+  }
+  .main-title {
+    font-size: 1.5rem; /* Taille de la police */
+    font-weight: bold; /* Gras */
+    margin-bottom: 20px; /* Marge en bas */
+  }
+  .p-button-delete {
+    background-color: red;
+    color: white;
+}
+
+.p-button-edit {
+    background-color: blue;
+    color: white;
+}
+
+
+
+    

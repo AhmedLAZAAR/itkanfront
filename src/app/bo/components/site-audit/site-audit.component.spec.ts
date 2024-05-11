@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddAuditComponent } from './add-audit.component';
+import { SiteAuditComponent } from './site-audit.component';
 
-describe('AddAuditComponent', () => {
-  let component: AddAuditComponent;
-  let fixture: ComponentFixture<AddAuditComponent>;
+describe('SiteAuditComponent', () => {
+  let component: SiteAuditComponent;
+  let fixture: ComponentFixture<SiteAuditComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AddAuditComponent]
+      declarations: [SiteAuditComponent]
     });
-    fixture = TestBed.createComponent(AddAuditComponent);
+    fixture = TestBed.createComponent(SiteAuditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

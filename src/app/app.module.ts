@@ -24,17 +24,14 @@ import { IndicateurComponent } from './bo/components/indicateur/indicateur.compo
 import { LeadershipComponent } from './bo/components/leadership/leadership.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { HomeComponent } from './bo/components/home/home.component';
-import { AddAuditComponent } from './bo/components/audit/add-audit/add-audit.component';
-import { ListAuditComponent } from './bo/components/audit/list-audit/list-audit.component';
-import { UpdateAuditComponent } from './bo/components/audit/update-audit/update-audit.component';
-import { AddConstatComponent } from './bo/components/Constat/add-constat/add-constat.component';
-import { ListConstatComponent } from './bo/components/Constat/list-constat/list-constat.component';
-import { UpdateConstatComponent } from './bo/components/Constat/update-constat/update-constat.component';
+import { CrudCheckListAuditComponent } from './bo/components/check-list-audit/list-check-list-audit/list-check-list-audit.component';
+import { CrudSiteAuditComponent } from './bo/components/site-audit/list-site-audit/list-site-audit.component';
+import { UpdateSiteAuditComponent } from './bo/components/site-audit/update-site-audit/update-site-audit.component';
 
 registerLocaleData(localeFr);
 
 @NgModule({
-    declarations: [AppComponent,HomeComponent, NotfoundComponent , ProcObjectifsComponent , ProcedureComponent, IndicateurComponent, LeadershipComponent, AddAuditComponent, ListAuditComponent, UpdateAuditComponent, AddConstatComponent, ListConstatComponent, UpdateConstatComponent ],
+    declarations: [AppComponent,HomeComponent, NotfoundComponent , ProcObjectifsComponent , ProcedureComponent, IndicateurComponent, LeadershipComponent, CrudCheckListAuditComponent, CrudSiteAuditComponent, UpdateSiteAuditComponent ],
     imports: [
         AppRoutingModule,
         AppLayoutModule,

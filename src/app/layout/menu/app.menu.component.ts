@@ -129,37 +129,80 @@ export class AppMenuComponent implements OnInit {
                         ),
                         ispopup:false
                     },
-
+                   
                 ],
             },
             {
                 label: 'Audit',
                 visible: this.generalService.canActivateAll(
-                    ['Utilisateurs-Consulter', 'Paramétrages-Consulter', 'Organisme-Consulter']
+                    ['Leadership-Consulter','Processus-Consulter','Procedure-Consulter','Bibliothèque-Consulter','Documents Périme-Consulter']
                 ),
                 items: [
                     {
-                        label: 'Audit ',
-                        icon: 'pi pi-id-card',
-                        routerLink: ['list'],
+                        label: 'Leadership',
+                        icon: 'pi pi-briefcase',
+                        routerLink: ['Leadership/Contexte'],
                         visible: this.generalService.canActivate(
-                            'Organisme-Consulter'
+                            'Leadership-Consulter'
+                        ),
+                        ispopup:false,
+                    },
+                    {
+                        label: 'Processus',
+                        icon: 'pi pi-fw pi-inbox',
+                        routerLink: ['processus/list'],
+                        visible: this.generalService.canActivate(
+                            'Processus-Consulter'
                         ),
                         ispopup:false
                     },
                     {
-                        label: 'Create Audit',
-                        icon: 'pi pi-users',
-                        routerLink: ['addaudit'],
+                        label: 'Procédures',
+                        icon: 'pi pi-fw pi-list',
+                        routerLink: ['procedure/list'],
                         visible: this.generalService.canActivate(
-                            'Utilisateurs-Consulter'
+                            'Procédure-Consulter'
                         ),
                         ispopup:false
                     },
-
+                    {
+                        label: 'Bibliothèque',
+                        icon: 'pi pi-book',
+                        routerLink: ['bibliothèque'],
+                        visible: this.generalService.canActivate(
+                            'Bibliothèque-Consulter'
+                        ),
+                        ispopup:false
+                    },
+                    {
+                        label: 'Documents Périmés',
+                        icon: 'pi pi-ban',
+                        routerLink:['Documents-Périme'],
+                        visible: this.generalService.canActivate(
+                            'Documents Périme-Consulter'
+                        ),
+                        ispopup:false,
+                    },
+                    {
+                        label: 'Site à Auditer',
+                        icon: 'pi pi-briefcase',
+                        routerLink:['SiteAudit'],
+                        visible: this.generalService.canActivate(
+                            'Documents Périme-Consulter'
+                        ),
+                        ispopup:false,
+                    },
+                    {
+                        label: 'Checklist audit',
+                        icon: 'pi pi-book',
+                        routerLink:['CheckListAudit'],
+                        visible: this.generalService.canActivate(
+                            'Documents Périme-Consulter'
+                        ),
+                        ispopup:false,
+                    },
+                 
                 ],
-
-
             },
         ];
     }

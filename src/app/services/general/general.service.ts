@@ -364,7 +364,7 @@ export class GeneralService {
         }
         if (permissions != null) {
             var data: any[] = JSON.parse(permissions)
-           return data.some((obj: any) => obj.name.toLowerCase() == role.toLowerCase())
+           return data.some((obj: any) => obj.name.toLowerCase() == role.toLowerCase())   
         }
         else {
             return false
@@ -392,7 +392,7 @@ export class GeneralService {
             var data: any[] = JSON.parse(permissions)
             for (let index = 0; index < roles.length; index++) {
                 var role = roles[index];
-
+                
                 if (data.some((obj: any) => obj.name.toLowerCase() == role.toLowerCase())) {
                     exist = true;
                     break;
@@ -405,51 +405,47 @@ export class GeneralService {
             return false
         }
     }
-
+   
 
     // get Id Form URL
     getProcessusID(routeName : string){
-        const urlSegments = this.router.url.split('/');
-        const idIndex = urlSegments.indexOf(`${routeName}`);
+        const urlSegments = this.router.url.split('/'); 
+        const idIndex = urlSegments.indexOf(`${routeName}`); 
         if (idIndex !== -1 && idIndex < urlSegments.length - 1) {
             const str = urlSegments[idIndex + 1];
             const id = parseInt(str,10);
             return id;
         } else {
             return null;
-        }
+        } 
     }
 
      // get Id Form URL
      getProcedureID(routeName : string){
-        const urlSegments = this.router.url.split('/');
-        const idIndex = urlSegments.indexOf(`${routeName}`);
+        const urlSegments = this.router.url.split('/'); 
+        const idIndex = urlSegments.indexOf(`${routeName}`); 
         if (idIndex !== -1 && idIndex < urlSegments.length - 1) {
             const str = urlSegments[idIndex + 1];
             const id = parseInt(str,10);
             return id;
         } else {
             return null;
-        }
+        } 
     }
 
       // get Id Form URL
       getIndicateurID(routeName : string){
-        const urlSegments = this.router.url.split('/');
-        const idIndex = urlSegments.indexOf(`${routeName}`);
+        const urlSegments = this.router.url.split('/'); 
+        const idIndex = urlSegments.indexOf(`${routeName}`); 
         if (idIndex !== -1 && idIndex < urlSegments.length - 1) {
             const str = urlSegments[idIndex + 1];
             const id = parseInt(str,10);
             return id;
         } else {
             return null;
-        }
+        } 
     }
 
-
-
-    successSwal(constatSupprimé: string) {
-
-
-    }
+   
+   
 }

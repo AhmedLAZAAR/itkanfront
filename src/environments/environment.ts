@@ -68,7 +68,7 @@ export const environment = {
             check : 'ProcesDocuments/CheckValidDocument'
         },
         ProcDocuments : {
-            getAll:  'ProcDocuments',
+            getAll: 'ProcDocuments',
             detaille: 'ProcDocuments/Detail',
             ajouter : 'ProcDocuments/ajouter',
             modifie :'ProcDocuments/update',
@@ -200,7 +200,7 @@ export const environment = {
             Modifie: 'sites/update',
             supprimer: 'sites/delete',
         },
-
+        
         clients: {
             getHeaderNamesFromCSV: 'clients/getHeaderNamesFromCSV',
             UploadFileAndData: 'clients/UploadFileAndData',
@@ -211,7 +211,7 @@ export const environment = {
             Modifie: 'clients/update',
             supprimer: 'clients/delete',
         },
-
+       
         declaration:{
             search: 'Declaration/search',
             afficherAll: 'Declaration/GetAll',
@@ -227,7 +227,7 @@ export const environment = {
             Update: 'TypeOrdreService/update',
             Delete: 'TypeOrdreService/delete',
         },
-
+        
         OrganismService: {
             Search: 'Organismes/search',
             GetAll: 'Organismes/GetAll',
@@ -244,7 +244,7 @@ export const environment = {
             Update: 'Certificat/Update',
             Delete: 'Certificat/Delete',
         },
-
+        
         reclamation: {
             search: 'reclamations/search',
             afficherAll: 'reclamations/GetAll',
